@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>thử nhúng ahihi</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="public/css/reset.css">
+</head>
+<body>
+	<div id="header">
+		<button id="run" onclick="active_DOM()">SAVE</button>
+	</div>
+	<div id="html"></div>
+	<div style="clear: both;"></div>
+	<div id="result"></div>
+	    
+	<script src="public/js/ace.js" type="text/javascript" charset="utf-8"></script>
+	<script src="public/js/active_DOM.js" type="text/javascript" charset="utf-8"></script>
+
+	<script>
+			if(typeof(Storage) !== "undefined") {
+		    // Có thể sử dụng localStorage/sessionStorage.
+
+			} else {
+		    // Trình duyệt không hỗ trợ Local storage.
+		    alert("trình duyệt bạn không được hỗ trợ!");
+			}
+
+			var html = ace.edit("html");
+			html.setTheme("ace/theme/monokai");
+			html.getSession().setMode("ace/mode/html");//thiết lập ngôn ngữ
+	    html.getSession().setTabSize(4);//tab size mặc định
+	    document.getElementById('html').style.fontSize='16px';//font chữ
+	    html.insert("<!DOCTYPE html>\n<html>\n<head></head>\n<body>\n\t<h1>Trung Hồ Ngọc</h1>\n\t<button onclick='ahihi()'>ô cê</button>\n\t<script>\n\t\tfunction ahihi(){alert('bạn vừa click');}\n\t</"+"script>\n</body>\n</html>");
+	    html.session.setUseWrapMode(true);//cài đặt số từ tối đa trên 1 dòng
+			html.session.setWrapLimitRange(60);
+
+			if(sessionStorage.html){
+				html.setValue(sessionStorage.html);
+				var result = document.getElementById("result");
+				result.innerHTML = html.getValue();
+				// console.log(sessionStorage.html);
+				runScripts(result);
+			}else console.log("không có");
+			
+			function active_DOM(){
+				sessionStorage.html = html.getValue();
+				// window.location.href = window.location.pathname + window.location.search + window.location.hash;
+				var result = document.getElementById("result");
+				result.innerHTML = html.getValue();
+				runScripts(result);
+				// return false;
+			}
+	</script>
+	<script src="public/js/active_DOM.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

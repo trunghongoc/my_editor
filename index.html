@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<head>
+	<title>Online HTML and CSS Editor</title>
+	<link href="css/style.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="css/text_logo.css">
+</head>
+<body id="scratchpad" tabindex="0">
+  <div id="menu-pane">
+    <p class="text-logo">
+	  Chào mừng bạn đến với website
+	  <span>
+	    Trung Hồ Ngọc
+	  </span>
+	  &mdash; Chúc bạn code vui vẻ :3 &mdash;
+	</p>
+    <p class='subtitle'>Online HTML &amp; CSS Editor</p>
+    <h2>About</h2>
+    <p>TrungHoNgoc code online is an easy way to write HTML and CSS, created by <a href="https://www.facebook.com/trung.hongoc">@trung.hongoc</a>.</p>
+    <p>
+      <a href="https://trunghongoc.github.io/" class="twitter-share-button" data-url="https://trunghongoc.github.io/" data-text="Cool! A online HTML &amp; CSS editor">github</a>
+    </p>
+    <h2>Recent</h2>
+    <ul id="recent-scratchpads">
+      <li>Loading...</li>
+    </ul>
+  </div>
+
+  <div id="commandbar">
+    <!-- <a href="javascript:void(0)" id="menu"><span id="menu-button">&nbsp;</span></a>
+    <a href="javascript:void(0)" id="title">Loading...</a> -->
+    <a href="javascript:void(0)" id="menu"><span id="menu-button">&nbsp;</span></a>
+    <span class="runcode" id="runcode" title="run"></span>
+    <a href="javascript:void(0)" id="title">Demo trình soạn thảo nè mấy má ơi ))</a>
+    <div class="clearfix"></div>
+  </div>
+
+  <div id="editor"></div>
+
+  <div id="footer">
+    <div class="text-hello"></div>
+  </div>
+
+  <div id="drag-handle"></div>
+
+  <iframe id="preview"></iframe>
+  <div id="help">
+    <h2>HTML &amp; CSS Quick Reference</h2>
+    <dl>
+      <dt>Headings</dt>
+      <dd><code>&lt;h1&gt;, &lt;h2&gt;, &lt;h3&gt;, &lt;h4&gt;, &lt;h5&gt;, &lt;h6&gt;</code></dd>
+      <dt>Link</dt>
+      <dd><code>&lt;a href="http://google.com"&gt;Google&lt;a&gt;</code></dd>
+    </dl>
+  </div>
+
+  <script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
+  <script src="js/jquery.base64.min.js" type="text/javascript"></script>
+  <script src='js/fire/firebase.js' type="text/javascript" charset='utf-8'></script>
+  <script src="js/ace/ace.js" type="text/javascript" charset='utf-8'></script>
+  <!-- <script src="js/ace/ext/ext-emmet.js" type="text/javascript" charset='utf-8'></script> -->
+  <script src="js/fire/scratchpad.js?v=4" type="text/javascript"></script>
+  <script src="js/text/text.js" type="text/javascript"></script>
+  <script src="js/run.js" type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,414 @@
+body {
+  background: #1C1C1C;
+  font-family: Monaco, Menlo, 'Ubuntu Mono', Consolas, source-code-pro, monospace;
+}
+
+a {
+  color: #99CC99;
+}
+
+#preview {
+  background: #fff;
+  transition: all 0.15s;
+  -moz-transition: all 0.15s;
+  -webkit-transition: all 0.15s;
+}
+
+#commandbar {
+  position: absolute;
+  height: 31px;
+  top: 0;
+  left: 0;
+  right: 60%;
+  background: #1c1c1c;
+  color: #666666;
+  transition: all 0.15s;
+  -moz-transition: all 0.15s;
+  -webkit-transition: all 0.15s;
+  overflow: hidden;
+}
+
+#menu {
+  text-indent: -999999px;
+  float: left;
+  height: 31px;
+  text-align: center;
+  opacity: 0.5;
+  width: 47px;
+}
+
+#menu:hover {
+  opacity: 1;
+  background-color: #2D2D2D;
+}
+
+#menu-button {
+  background-image: url(../img/menu-icon.png);
+  width: 15px;
+  height: 13px;
+  display: block;
+  margin: 9px auto 0px auto;
+}
+
+.small#menu   {width: 40px;}
+.medium#menu  {width: 47px;}
+.large#menu   {width: 54px;}
+.x-large#menu {width: 61px;}
+
+#commandbar #title {
+  display: inline-block;
+  text-decoration: none;
+  border: 0;
+  color: #aaa;
+  padding: 8px 5px 7px 5px;
+  font-size: 12px;
+}
+
+#commandbar #title.hover {
+  background: #2D2D2D;
+}
+
+#connections {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  width: inherit;
+}
+
+#connections:hover {
+  cursor: default;
+}
+
+#connections li {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  margin-right: 5px;
+  margin-bottom: 2px;
+  background: #99CC99;
+  border-radius: 100%;
+  box-shadow: 0px 0px 5px #99CC99;
+}
+
+#connections-tooltip {
+  margin-left: -3px;
+  font-size: 10px;
+  opacity: 1;
+  color: #AAAAAA;
+}
+
+#commandbar #toggle-fullscreen {
+  position: absolute;
+  right: 10px;
+  top: 7px;
+  opacity: 0.75;
+  transition: none;
+  -moz-transition: none;
+  -webkit-transition: none;
+}
+
+#commandbar #toggle-fullscreen:hover {
+  opacity: 1;
+}
+
+#commandbar #toggle-fullscreen .tooltip {
+  background: #1C1C1C;
+  box-shadow: -6px 0px 10px #1c1c1c;
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 30px;
+  font-size: 12px;
+  color: #666;
+  text-align: right;
+  width: 180px;
+}
+
+#commandbar #toggle-fullscreen:hover .tooltip {
+  display: block;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 60%;
+  background: #1C1C1C;
+  text-align: center;
+  color: #666666;
+  padding: 7px 0px 8px 0px;
+  font-size: 12px;
+  transition: all 0.15s;
+  -moz-transition: all 0.15s;
+  -webkit-transition: all 0.15s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+
+#footer a {
+  color: #666666;
+  text-indent: -9999px;
+  display: inline-block;
+  width: 77px;
+  opacity: 0.5;
+  background-image: url('../img/firebase.png');
+  background-size: 100%;
+  transition: all 0.15s;
+  -moz-transition: all 0.15s;
+  -webkit-transition: all 0.15s;
+}
+
+#footer a:hover {
+  opacity: 1;
+}
+
+#footer iframe {
+  position: absolute;
+  left: 10px;
+}
+
+#editor {
+  position: absolute;
+  top: 32px;
+  right: 60%;
+  bottom: 31px;
+  left: 0;
+  transition: all 0.15s;
+  -moz-transition: all 0.15s;
+  -webkit-transition: all 0.15s;
+  background: #2d2d2d;
+}
+#preview {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 40%;
+  right: 0;
+  border: 0;
+  width: 60%;
+  height: 100%;
+  border-radius: 5px 0px 0px 5px;
+  /*box-shadow: -4px 0px 15px #1C1C1C;*/
+}
+#help {
+  font-family: helvetica;
+  display: none;
+  position: fixed;
+  top: 40px;
+  width: 500px;
+  padding: 20px;
+  border-radius: 10px;
+  left: 50%;
+  margin-left: -250px;
+  z-index: 10;
+  box-shadow: 0px 0px 20px rgba(0,0,0,0.75);
+  background: #fff;
+}
+#help.visible {
+  display: block;
+}
+
+/* ---------------------------------------------------------------------------------
+    Fullscren Mode.
+--------------------------------------------------------------------------------  */
+
+#scratchpad.fullscreen #commandbar {
+  border: none;
+  width: 3%;
+  background: #212121;
+}
+
+#scratchpad.fullscreen #title,  #scratchpad.fullscreen #menu, #scratchpad.fullscreen #footer, #scratchpad.fullscreen #menu-pane{
+  opacity: 0;
+}
+
+#scratchpad.fullscreen #commandbar .tooltip {
+  display: none;
+}
+
+#scratchpad.fullscreen #toggle-fullscreen {
+  transform:rotate(180deg);
+  -ms-transform:rotate(180deg);
+  -moz-transform:rotate(180deg);
+  -webkit-transform:rotate(180deg);
+  -o-transform:rotate(180deg);
+  top: 3px;
+}
+
+#scratchpad.fullscreen #editor {
+  right: 97%;
+}
+
+#scratchpad.fullscreen #preview {
+  left: 3%;
+  width: 97%;
+}
+
+/* ---------------------------------------------------------------------------------
+    Menu Mode.
+--------------------------------------------------------------------------------  */
+
+#menu-pane {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 80%;
+  box-shadow: inset -4px 0px 15px #0f0f0f;
+  color: #aaa;
+  padding: 20px;
+  opacity: 0;
+  transition: all 0.15s;
+  -moz-transition: all 0.15s;
+  -webkit-transition: all 0.15s;
+  overflow-y: scroll;
+}
+
+#menu-pane h1 {
+  width: 176px;
+  height: 29px;
+  text-indent: -99999px;
+  background-image: url(../img/logo.png);
+  margin: 10px;
+}
+
+#menu-pane p.subtitle {
+  font-size: 9px;
+  text-align: center;
+  color: #666;
+}
+
+#menu-pane h2 {
+  border-bottom: 1px dashed #2D2D2D;
+  text-transform: uppercase;
+  font-size: 13px;
+  padding-bottom: 5px;
+  margin-top: 25px;
+  font-weight: normal;
+}
+
+#menu-pane p {
+  font-size: 11px;
+  margin-top: 0;
+}
+#menu-pane ul {
+  margin: 0;
+  padding: 0;
+}
+#menu-pane li {
+  font-size: 11px;
+  list-style-type: none;
+}
+#recent-scratchpads li {
+  position: relative;
+}
+#recent-scratchpads .recent-scratchpad {
+  color: #aaa;
+  display: block;
+  padding: 5px 0;
+  text-decoration: none;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+#recent-scratchpads .recent-scratchpad:hover {
+  background: #222;
+  color: #ccc;
+}
+#recent-scratchpads time {
+  color: #555;
+  font-size: 8px;
+}
+#recent-scratchpads .delete {
+  position: absolute;
+  right: 5px;
+  top: 2px;
+  font-size: 14px;
+  color: #555;
+  text-decoration: none;
+  opacity: 0;
+  background: #222;
+}
+#recent-scratchpads .delete:hover {
+  color: #aaa;
+  background: none;
+}
+#recent-scratchpads li:hover .delete {
+  opacity: 1;
+}
+#scratchpad.menu #menu-pane {
+  opacity: 1;
+}
+#scratchpad.menu #commandbar, #scratchpad.menu #editor, #scratchpad.menu #footer {
+  left: 20%;
+  right: 40%;
+}
+#scratchpad.menu #preview {
+  left: 60%;
+  width: 40%;
+  right: 0;
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar:vertical {
+    width: 4px;
+}
+::-webkit-scrollbar:horizontal {
+    height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+ 
+::-webkit-scrollbar-thumb:vertical {
+  background: #5a5a5a;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+  background: #444;
+}
+
+body.resizing * {
+  -webkit-transition: none !important;
+  -webkit-user-select: none !important;
+  -moz-transition: none !important;
+  -moz-user-select: none !important;
+}
+
+#drag-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 10px;
+  left: 40%;
+  z-index: 1000;
+}
+
+#drag-handle:hover {
+  cursor: col-resize;
+}
+
+#drag-handle.dragging {
+  width: 200px;
+}
+
+/* custom */
+.runcode {
+  color: red;
+  float: left;
+  width: 20px;
+  height: 20px;
+  background: url('../img/movie-player-play-button.png');
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  margin-top: 6px;
+  cursor: pointer;
+}
+.clearfix {
+  clear: both;
+}
