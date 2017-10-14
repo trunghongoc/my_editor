@@ -36,7 +36,7 @@ $(function(){
   editor.getSession().setMode("ace/mode/html");
   editor.setHighlightActiveLine(false);
   editor.getSession().setTabSize(4);
-  document.getElementById('editor').style.fontSize='12px';
+  document.getElementById('editor').style.fontSize='16px';
   editor.commands.removeCommand('gotoline');
   editor.setShowPrintMargin(false);
   // editor.setOption("enableEmmet", true);
