@@ -41,6 +41,7 @@ $(function(){
   editor.setShowPrintMargin(false);
   // editor.setOption("enableEmmet", true);
   // editor.setBehavioursEnabled(true);
+  editor.insert('<!DOCTYPE html>\n<html>\n\t<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>\n<body>\n\n\t<div ng-app="myApp" ng-controller="myCtrl">\n \t\tInput: <input ng-model="myData">\n \t\t<h1>{{myData}}</h1>\n\t</div>\n\n\t<script>\n\t\tvar app=angular.module(\'myApp\', []);\n\t\tapp.controller(\'myCtrl\', function($scope){\n \t\t\t$scope.myData="Hê lô bạn ))";\n\t\t});\n\t</script>\n\n\t<p>Hãy thử thay đổi nội dung ô input</p>\n</body>\n</html>\n');
   editor.commands.addCommand({
     name: 'showHelp',
     bindKey: {win: 'Ctrl-/',  mac: 'Command-/'},

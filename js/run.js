@@ -1,5 +1,4 @@
-$(document).ready(function(){
-	var Base64 = {
+var Base64 = {
 
 
     _keyStr: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
@@ -83,12 +82,10 @@ $(document).ready(function(){
 
             if (c < 128) {
                 utftext += String.fromCharCode(c);
-            }
-            else if ((c > 127) && (c < 2048)) {
+            } else if ((c > 127) && (c < 2048)) {
                 utftext += String.fromCharCode((c >> 6) | 192);
                 utftext += String.fromCharCode((c & 63) | 128);
-            }
-            else {
+            } else {
                 utftext += String.fromCharCode((c >> 12) | 224);
                 utftext += String.fromCharCode(((c >> 6) & 63) | 128);
                 utftext += String.fromCharCode((c & 63) | 128);
@@ -111,13 +108,11 @@ $(document).ready(function(){
             if (c < 128) {
                 string += String.fromCharCode(c);
                 i++;
-            }
-            else if ((c > 191) && (c < 224)) {
+            } else if ((c > 191) && (c < 224)) {
                 c2 = utftext.charCodeAt(i + 1);
                 string += String.fromCharCode(((c & 31) << 6) | (c2 & 63));
                 i += 2;
-            }
-            else {
+            } else {
                 c2 = utftext.charCodeAt(i + 1);
                 c3 = utftext.charCodeAt(i + 2);
                 string += String.fromCharCode(((c & 15) << 12) | ((c2 & 63) << 6) | (c3 & 63));
@@ -130,10 +125,16 @@ $(document).ready(function(){
     }
 
 }
+
+function runcode(){
+	var code_val = editor.getSession().getValue();
+	// var data_url = "data:text/html;charset=utf-8;base64," + $.base64.encode(code_val);
+	var data_url = "data:text/html;charset=utf-8;base64," + Base64.encode(code_val);
+	document.getElementById("preview").src = data_url;
+}
+$(document).ready(function(){
+	runcode()
 	$("#runcode").click(function(){
-		var code_val = editor.getSession().getValue();
-        // var data_url = "data:text/html;charset=utf-8;base64," + $.base64.encode(code_val);
-        var data_url = "data:text/html;charset=utf-8;base64," + Base64.encode(code_val);
-        document.getElementById("preview").src = data_url;
+		runcode()
 	})
 })
