@@ -14,7 +14,7 @@ a {
   -webkit-transition: all 0.15s;
 }
 
-#commandbar {
+#commandbar, .commandbar2 {
   position: absolute;
   height: 31px;
   top: 0;
@@ -26,6 +26,9 @@ a {
   -moz-transition: all 0.15s;
   -webkit-transition: all 0.15s;
   overflow: hidden;
+}
+.commandbar2 {
+  top: 32px;
 }
 
 #menu {
