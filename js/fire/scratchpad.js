@@ -393,6 +393,7 @@ $(function(){
       $('#preview').css('left', e.pageX + 'px');
       $('#drag-handle').css('left', (e.pageX - 5) + 'px');
       $('#commandbar, #editor, #footer').css('right', window.innerWidth - e.pageX);
+      getIframeSize()
     }
 
   });
